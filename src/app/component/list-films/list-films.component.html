@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let film of films" class="col mb-2">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title>{{film.title}}</mat-card-title>
+                  <mat-card-subtitle>{{film.type}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{film.imageUrl}}" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p class="text-justify">
+                      {{film.description}}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <mat-icon>visibility</mat-icon>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+    </div>
+</div>

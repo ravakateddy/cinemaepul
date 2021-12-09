@@ -1,0 +1,29 @@
+*{
+    display: flex;
+    align-items: center;
+}
+button, .profile-picture{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+li{
+    padding-bottom: 1em;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
+.active{
+    
+    border-bottom: 2px solid;
+    border-bottom-color: white;
+    
+}
+
+.mat-icon{
+    margin-right: 0.25em;
+}
+.menu{
+    padding: 1em;
+}
