@@ -9,6 +9,11 @@ button, .profile-picture{
     object-fit: cover;
 }
 
+button{
+    min-width: inherit;
+    padding: 0px!important;
+}
+
 li{
     padding-bottom: 1em;
     padding-right: 0.5em;
