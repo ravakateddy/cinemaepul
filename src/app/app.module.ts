@@ -14,21 +14,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
-import {AuthService} from "./shared/providers/auth.service";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { FilmDetailComponent } from './film-detail/film-detail.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { YouTubePlayerModule } from '@angular/youtube-player';
-import {MatChipsModule} from '@angular/material/chips';
-import { FormActorComponent } from './form-actor/form-actor.component';
-import { FormFilmComponent } from './form-film/form-film.component';
+import {AuthService} from "./core/auth/auth.service";
 import { FormPersonnageComponent } from './form-personnage/form-personnage.component';
-import { ListFilmsComponent } from './core/components/list-films/list-films.component';
+import { FormFilmComponent } from './form-film/form-film.component';
+import { FormActorComponent } from './form-actor/form-actor.component';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { SearchComponent } from './core/components/search/search.component';
-
-
-
+import { ListFilmsComponent } from './core/components/list-films/list-films.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [

@@ -6,6 +6,7 @@ import { FormFilmComponent } from './form-film/form-film.component';
 import { FormPersonnageComponent } from './form-personnage/form-personnage.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from "./core/guard/auth.guard";
 
 const routes: Routes = [
   {
