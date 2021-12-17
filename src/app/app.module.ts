@@ -16,6 +16,8 @@ import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
 import { ListFilmsComponent } from './component/list-films/list-films.component';
 import { SearchComponent } from './component/search/search.component';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -26,7 +28,8 @@ import { SearchComponent } from './component/search/search.component';
     NavbarComponent,
     LoginComponent,
     ListFilmsComponent,
-    SearchComponent
+    SearchComponent,
+    FilmDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { SearchComponent } from './component/search/search.component';
     MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
