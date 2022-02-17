@@ -1,0 +1,42 @@
+<div class="p-4 w-100 search">
+    <h3 class="mb-2">Recherche </h3>
+    <hr>
+    <form action="">
+        <mat-form-field class="w-100" appearance="legacy">
+            <mat-label>Film...</mat-label>
+            <input matInput placeholder="Rechercher un film">
+        </mat-form-field>
+        <mat-form-field class="w-100">
+            <mat-label>Type</mat-label>
+            <mat-select multiple>
+                <mat-select-trigger>
+                    {{categoriesControl.value ? categoriesControl.value[0] : ''}}
+                    <span *ngIf="categoriesControl.value?.length > 1" class="example-additional-selection">
+                        (+{{categoriesControl.value.length - 1}} {{categoriesControl.value?.length === 2 ? 'other' :
+                        'others'}})
+                    </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let categorie of categories" [value]="categorie.codeCat">{{categorie.libelleCat}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of [1, 2, 3, 4]" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+        <mat-form-field class="w-100" appearance="legacy">
+            <mat-label>Personnage...</mat-label>
+            <input type="text" matInput [matAutocomplete]="auto">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="legacy">
+            <mat-label>Acteur...</mat-label>
+            <input type="text" matInput [matAutocomplete]="auto">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="legacy">
+            <mat-label>Réalisateur...</mat-label>
+            <input type="text" matInput [matAutocomplete]="auto">
+        </mat-form-field>
+    </form>
+
+</div>

@@ -1,7 +1,18 @@
-<div color="primary">
-    <ul>
-        <li>Accueil</li>
-        <li>Test</li>
+<div style="position: absolute; top: 0; width: 100%;" class="d-flex menu align-items-center justify-content-between">
+    <div style="margin-left: 10px;"><img src="../../../assets/img/logo.png" width="75" alt="" srcset=""></div>
+    <ul class="">
+        <li class="active"><a routerLink='/'> <span>Accueil</span></a></li>
+        <li style="margin-left: 1em;"><a routerLink='/formFilm'> <span>Ajouter un film</span></a></li>
+        <li style="margin-left: 1em;"><a routerLink='/formActor'> <span>Ajouter un acteur</span></a></li>
+        <li style="margin-left: 1em;"><a routerLink='/formPersonnage'> <span>Ajouter un personnage</span></a></li>
     </ul>
-    <button mat-raised-button color="primary">Test</button>
+    <mat-form-field class="col-4" appearance="outline">
+        <input matInput placeholder="Recherche">
+    </mat-form-field>
+    <div class="d-flex align-items-center">
+        <button mat-button>
+            <img src="../../../assets/img/default_profile_picture.jpg" alt="" class="profile-picture">
+        </button>
+
+    </div>
 </div>

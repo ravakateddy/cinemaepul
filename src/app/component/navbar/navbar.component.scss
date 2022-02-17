@@ -1,0 +1,39 @@
+*{
+    display: flex;
+    align-items: center;
+}
+button, .profile-picture{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+button{
+    min-width: inherit;
+    padding: 0px!important;
+}
+
+li{
+    padding-bottom: 1em;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    color: gray;
+}
+.active{
+    
+    border-bottom: 2px solid;
+    border-bottom-color: white;
+    color: white;
+    
+}
+
+.mat-icon{
+    margin-right: 0.25em;
+}
+.menu{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    z-index: 999;
+}

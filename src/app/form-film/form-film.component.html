@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="container" style="margin-top: 175px;">
+    <h2>Ajouter un film</h2>
+    <form action="">
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Titre</mat-label>
+            <input matInput placeholder="Titre">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Duree</mat-label>
+            <input matInput placeholder="Duree">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Date de sortie</mat-label>
+            <input matInput placeholder="Date de sortie">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Budget</mat-label>
+            <input matInput placeholder="Budget">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Montant de la recette</mat-label>
+            <input matInput placeholder="Montant de la recette">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Url image</mat-label>
+            <input matInput placeholder="Url image">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Video trailer (youtube id)</mat-label>
+            <input matInput placeholder="Video trailer (youtube id)">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Title image</mat-label>
+            <input matInput placeholder="Title image">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Type</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let categorie of categories" [value]="categorie.codeCat">{{categorie.libelleCat}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Type</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let categorie of categories" [value]="categorie.codeCat">{{categorie.libelleCat}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>

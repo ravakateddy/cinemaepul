@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let film of films" class="col mb-2">
+          <a [routerLink]="'/films/'+film.noFilm">
+            <mat-card>
+              <mat-card-header class="d-flex justify-content-center">
+                <mat-card-title>{{film.titre}}</mat-card-title>
+                <mat-card-subtitle class="text-center">{{film.categorie?.libelleCat}}</mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image src="{{film.urlImage}}">
+            </mat-card>
+          </a>
+            
+        </div>
+    </div>
+</div>
