@@ -14,7 +14,7 @@ export class FilmService {
     this.headers.set('content-type', 'application/json')
     .set('Cache-Control', 'no-cache')
     .set('Access-Control-Allow-Origin', '*')
-    .set('Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJNZXJsb3QiLCJleHAiOjE2NDUxMzU4OTEsImlhdCI6MTY0NTExNDI5MX0.z7ISnmO1PdrS4XOwh_Ra2cGBKVkAe4QTdE9Zju1mIlH13038AlUCIl7wx358NOtdkrEalTz12evArFZESOHK7g')
+    .set('Authorization', 'Bearer ' + localStorage.getItem("token"))
   }
   
 
