@@ -12,11 +12,11 @@ export class CategorieService {
       return [
         new Categorie().deserialize({
           id: 0,
-          libelle: "Action"
+          libelleCat: "Action"
         }),
         new Categorie().deserialize({
           id: 1,
-          libelle: "Aventure"
+          libelleCat: "Aventure"
         }),
       ]
   }

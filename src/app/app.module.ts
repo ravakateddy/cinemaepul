@@ -18,6 +18,13 @@ import { ListFilmsComponent } from './component/list-films/list-films.component'
 import { SearchComponent } from './component/search/search.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import {MatChipsModule} from '@angular/material/chips';
+import { HttpClientModule } from '@angular/common/http';
+import { FormActorComponent } from './form-actor/form-actor.component';
+import { FormFilmComponent } from './form-film/form-film.component';
+import { FormPersonnageComponent } from './form-personnage/form-personnage.component';
+
 
 
 
@@ -29,7 +36,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     LoginComponent,
     ListFilmsComponent,
     SearchComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    FormActorComponent,
+    FormFilmComponent,
+    FormPersonnageComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +52,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    YouTubePlayerModule,
+    MatChipsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,11 +18,13 @@ li{
     padding-bottom: 1em;
     padding-right: 0.5em;
     padding-left: 0.5em;
+    color: gray;
 }
 .active{
     
     border-bottom: 2px solid;
     border-bottom-color: white;
+    color: white;
     
 }
 
@@ -30,5 +32,8 @@ li{
     margin-right: 0.25em;
 }
 .menu{
-    padding: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 1em;
+    z-index: 999;
 }

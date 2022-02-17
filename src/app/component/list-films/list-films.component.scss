@@ -1,8 +1,16 @@
 .mat-card{
     min-width: 150px;
-    height: 100%;
+    overflow: hidden;
     img {
-        min-height: 75%;
-        max-height: 75%;
+        min-height: auto;
+        max-height: auto;
+        object-fit: contain;
+    }
+}
+
+.mat-card:hover{
+    img{
+        transition: 0.5s ease;
+        transform: scale(1.03);
     }
 }

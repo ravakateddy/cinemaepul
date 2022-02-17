@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Film } from 'src/app/models/film.model';
 import { FilmService } from 'src/app/services/film.service';
 
@@ -8,11 +8,11 @@ import { FilmService } from 'src/app/services/film.service';
   styleUrls: ['./list-films.component.scss']
 })
 export class ListFilmsComponent implements OnInit {
+  @Input()
   films: Film[] = []
-  constructor(private filmService:FilmService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.films = this.filmService.getFilms()
   }
 
 }
