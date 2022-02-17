@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div class="container">
+
+    <form name="frmLogin" (ngSubmit)="login()">
+        <h1>Connexion</h1>
+
+        <label><b>Nom d'utilisateur</b></label>
+        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" [(ngModel)]="userLogin" required autofocus>
+
+        <label><b>Mot de passe</b></label>
+        <input type="password" placeholder="Entrer le mot de passe" name="password" [(ngModel)]="userMdp" required>
+
+        <button type="submit" mat-raised-button color="primary" class>Connexion</button>
+    </form>
+</div>
+
