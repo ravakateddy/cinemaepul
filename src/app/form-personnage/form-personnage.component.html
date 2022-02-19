@@ -1,29 +1,26 @@
 <app-navbar></app-navbar>
 <div class="container" style="margin-top: 175px;">
     <h2>Ajouter un personnage</h2>
-    <form action="">
+    <form [formGroup]="personnageForm" (ngSubmit)="save()" autocomplete="false">
         <mat-form-field class="w-100" appearance="outline">
             <mat-label>Nom personnage</mat-label>
-            <input matInput placeholder="Nom personnage">
+            <input matInput placeholder="Nom personnage" formControlName="nomPers">
         </mat-form-field>
         <mat-form-field class="w-100" appearance="outline">
             <mat-label>Acteur</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let categorie of categories" [value]="categorie.codeCat">{{categorie.libelleCat}}
+            <mat-select  formControlName="noAct">
+                <mat-option *ngFor="let acteur of acteurs" [value]="acteur.noAct">{{acteur.nomAct}} {{acteur.prenAct}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field class="w-100" appearance="outline">
             <mat-label>Film</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let categorie of categories" [value]="categorie.codeCat">{{categorie.libelleCat}}
+            <mat-select  formControlName="noFilm">
+                <mat-option *ngFor="let film of films" [value]="film.noFilm">{{film.titre}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
             <button mat-raised-button color="primary">Valider</button>
-        
-
-
     </form>
 </div>

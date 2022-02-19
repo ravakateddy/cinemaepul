@@ -1,7 +1,7 @@
 import { Deserializable } from "./deserializable.model";
 
 export class Categorie implements Deserializable{
-    codeCat?:number;
+    codeCat?:string;
     libelleCat?: string;
     image? : string
     deserialize(input: any): this {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Film } from '../models/film.model';
 import { Personnage } from '../models/personnage.model';
 import { FilmService } from '../services/film.service';
@@ -13,11 +13,28 @@ import { PersonnageService } from '../services/personnage.service';
 export class FilmDetailComponent implements OnInit {
   film:Film=new Film();
   personnages:Personnage[] = []
-  constructor(private route:ActivatedRoute, private filmService:FilmService, private personnageService:PersonnageService) { }
+  constructor(private route:ActivatedRoute, private filmService:FilmService, private personnageService:PersonnageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.film = this.filmService.getFilm(1)
-    this.personnages = this.personnageService.getPersonnages(1)
+    const id: number = Number(this.route.snapshot.paramMap.get('id'));
+    this.filmService.getFilm(id).subscribe(film=>{
+      this.film = film
+      this.personnageService.getPersonnages(id).subscribe(perso=>{
+        this.personnages = perso
+        
+      })
+    })
+
+    
+  }
+
+  deleteFilm(noFilm:any){
+    if(confirm("Voulez-vous supprimer ce film?")){
+      this.filmService.deleteFilm(noFilm as number).subscribe(()=>{
+        this.router.navigateByUrl("/accueil")
+      })
+    }
+    
   }
 
 }

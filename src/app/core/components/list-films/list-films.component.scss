@@ -1,10 +1,10 @@
 .mat-card{
-    min-width: 150px;
+    height: 100%;
     overflow: hidden;
     img {
-        min-height: auto;
-        max-height: auto;
-        object-fit: contain;
+        object-fit: cover;
+        max-height: 85%;
+        min-height: 85%;
     }
 }
 

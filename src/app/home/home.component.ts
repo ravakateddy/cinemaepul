@@ -2,6 +2,11 @@ import { Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } fr
 import { YouTubePlayer } from '@angular/youtube-player';
 import { Film } from '../models/film.model';
 import { FilmService } from 'src/app/services/film.service';
+import { CategorieService } from '../services/categorie.service';
+import { RealisateurService } from '../services/realisateur.service';
+import { Categorie } from '../models/categorie.model';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +17,10 @@ import { FilmService } from 'src/app/services/film.service';
 export class HomeComponent implements OnInit {
 
   private apiLoaded = false;
-  private films:Film[] = [];
+  categories:any[] = []
+  public films:Film[] = [];
+  public filmsView :Film[] = [];
+  public selectedCategories: any[] = []
   @Input() videoId: string = "";
   playerConfig = {
     controls: 0,
@@ -21,7 +29,9 @@ export class HomeComponent implements OnInit {
     showinfo: 0,
     disablekb: 1
   };
-  constructor(private filmService: FilmService) {
+
+
+  constructor(private filmService: FilmService, private categorieService: CategorieService, private realisateurService: RealisateurService) {
    }
 
   ngOnInit(): void {
@@ -33,7 +43,13 @@ export class HomeComponent implements OnInit {
           }
     this.filmService.getFilms().subscribe(films=>{
       this.films = films
-      console.log(this.films)
+    })
+    this.categorieService.getCategories().subscribe(cat=>{
+      cat.map((c: any)=>{
+        c.state = true
+      })
+      this.categories = cat
+      this.applyFilter()
     })
     
         
@@ -52,8 +68,22 @@ export class HomeComponent implements OnInit {
   }
 
   err(event: any){
-    console.log(event)
   }
-  
+
+  applyFilter(){
+    this.selectedCategories = this.categories.filter((c, i, a)=>{return c.state===true})
+    this.selectedCategories = this.selectedCategories.map(c=>{return c.codeCat})
+    this.filmsView = this.films.filter((val, index, arr)=>{
+      return this.selectedCategories.includes(val.codeCat)
+    })
+
+
+  }
+
+  updateFilms(event:any[]){
+    this.films = event
+    this.applyFilter()
+  }
+
 
 }

@@ -14,14 +14,15 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'accueil'
   },
-  {path: 'accueil', component: HomeComponent},
+  {path: 'accueil', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component:LoginComponent},
-  {path: 'formFilm', component:FormFilmComponent},
-  {path: 'formActor', component:FormActorComponent},
-  {path: 'formPersonnage', component:FormPersonnageComponent},
-  {path: 'formPersonnage/:id', component:FormPersonnageComponent},
-  {path: 'formActor/:id', component:FormActorComponent},
-  {path: 'films/:id', component:FilmDetailComponent}
+  {path: 'formFilm', component:FormFilmComponent, canActivate: [AuthGuard]},
+  {path: 'formActor', component:FormActorComponent, canActivate: [AuthGuard]},
+  {path: 'formPersonnage', component:FormPersonnageComponent, canActivate: [AuthGuard]},
+  {path: 'formFilm/:id', component:FormFilmComponent, canActivate: [AuthGuard]},
+  {path: 'formPersonnage/:id', component:FormPersonnageComponent, canActivate: [AuthGuard]},
+  {path: 'formActor/:id', component:FormActorComponent, canActivate: [AuthGuard]},
+  {path: 'films/:id', component:FilmDetailComponent, canActivate: [AuthGuard]}
 
 ];
 

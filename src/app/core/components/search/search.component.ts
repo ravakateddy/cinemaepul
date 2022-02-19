@@ -14,7 +14,6 @@ export class SearchComponent implements OnInit {
 
   categoriesControl = new FormControl();
   ngOnInit(): void {
-    this.categories = this.categorieService.getCategories()
   }
 
 }

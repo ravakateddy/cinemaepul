@@ -1,7 +1,7 @@
 import { Deserializable } from "./deserializable.model";
 
 export class Acteur implements Deserializable{
-    id?:number;
+    noAct?:number;
     nomAct?: string;
     prenAct?:string;
     dateNaiss?:Date;

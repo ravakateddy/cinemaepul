@@ -1,13 +1,14 @@
 <div class="container">
     <div class="row">
-        <div *ngFor="let film of films" class="col mb-2">
+        <div *ngFor="let film of films" class="col-lg-3 col-sm-6 col-12 mb-4">
           <a [routerLink]="'/films/'+film.noFilm">
             <mat-card>
-              <mat-card-header class="d-flex justify-content-center">
-                <mat-card-title>{{film.titre}}</mat-card-title>
-                <mat-card-subtitle class="text-center">{{film.categorie?.libelleCat}}</mat-card-subtitle>
-              </mat-card-header>
-              <img mat-card-image src="{{film.urlImage}}">
+             
+              <img mat-card-image src="{{film.urlImage?film.urlImage:'https://drama.cx/wp-content/themes/halimmovies/assets/images/default-poster.jpg'}}">
+              <div class="">
+                <h3 class="w-100 text-center">{{film.titre}}</h3>
+                <h5 class="w-100 text-center">{{film.categorie?.libelleCat}}</h5>
+              </div>
             </mat-card>
           </a>
             

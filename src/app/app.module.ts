@@ -14,7 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./core/auth/auth.service";
 import { FormPersonnageComponent } from './form-personnage/form-personnage.component';
@@ -26,6 +26,8 @@ import { ListFilmsComponent } from './core/components/list-films/list-films.comp
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,11 @@ import {MatChipsModule} from '@angular/material/chips';
     MatAutocompleteModule,
     YouTubePlayerModule,
     MatChipsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

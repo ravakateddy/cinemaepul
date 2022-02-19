@@ -8,13 +8,15 @@ import { Film } from '../models/film.model';
 })
 export class FilmService {
 
-  private url = 'http://127.0.0.1:8080/film'
-  headers = new HttpHeaders()
+  private url = 'http://127.0.0.1:8080/film/'
+  headers: any;
   constructor(private httpClient:HttpClient) { 
-    this.headers.set('content-type', 'application/json')
-    .set('Cache-Control', 'no-cache')
-    .set('Access-Control-Allow-Origin', '*')
-    .set('Authorization', 'Bearer ' + localStorage.getItem("token"))
+    this.headers = new HttpHeaders({
+      'content-type': 'application/json',
+    'Cache-Control': 'no-cache',
+    'Access-Control-Allow-Origin': '*',
+    'Authorization': 'Bearer ' + localStorage.getItem("token")
+    })
   }
   
 
@@ -24,13 +26,29 @@ export class FilmService {
     });
   }
 
-  getFilm(id:number):Film{
-    return new Film().deserialize({
-      id: 1,
-      title: "The assassin",
-      description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, at dolore non a nihil modi. Reiciendis, odit. Repellat quos doloremque a voluptate illo nisi, eum est fuga doloribus veritatis, iste maiores fugiat, odit adipisci perferendis obcaecati nobis esse delectus. Perferendis quis dolores eum quo expedita dolore neque nihil eius fuga!",
-      imageUrl: "http://images.fandango.com/images/masterrepository/Fandango/186260/theAssassin.jpg",
-      type: "Action"
-    })
+  getFilmsParRealisateur(id:number): Observable<Film[]>{
+    return this.httpClient.get<Film[]>(this.url + 'realisateur/'+id, {
+      headers : this.headers
+    });
+  }
+
+  getFilm(id: number): Observable<Film>{
+    return this.httpClient.get<Film>(this.url + id, {
+      headers : this.headers
+    });
+  }
+
+  addFilm(film:Film){
+    return this.httpClient.post(this.url, film, {headers: this.headers})
+  }
+
+  updateFilm(film:Film){
+    delete film.categorie;
+    delete film.realisateur;
+    return this.httpClient.patch(this.url + film.noFilm, film, {headers: this.headers})
+  }
+
+  deleteFilm(id:number){
+    return this.httpClient.delete(this.url + id, {headers: this.headers})
   }
 }

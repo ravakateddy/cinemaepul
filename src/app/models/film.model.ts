@@ -22,7 +22,9 @@ export class Film implements Deserializable{
         
         Object.assign(this, input);
 
+        if(input.realisateur)
         this.realisateur = new Realisateur().deserialize(input.realisateur)
+        if(input.categorie)
         this.categorie = new Categorie().deserialize(input.categorie)
         return this;
         

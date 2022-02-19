@@ -1,7 +1,7 @@
 import { Deserializable } from "./deserializable.model";
 
 export class Realisateur implements Deserializable{
-    id?:number;
+    noRea?:number;
     nomRea?: string;
     prenRea?:string;
     

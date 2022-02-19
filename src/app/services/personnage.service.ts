@@ -1,84 +1,30 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Personnage } from '../models/personnage.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonnageService {
+  private url = 'http://127.0.0.1:8080/personnage/'
+  headers: any;
+  constructor(private httpClient:HttpClient) { 
+    this.headers = new HttpHeaders({
+      'content-type': 'application/json',
+    'Cache-Control': 'no-cache',
+    'Access-Control-Allow-Origin': '*',
+    'Authorization': 'Bearer ' + localStorage.getItem("token")
+    })
+  }
 
+  getPersonnages(nofilm:number): Observable<Personnage[]>{
+    return this.httpClient.get<Personnage[]>(this.url+'film/'+nofilm, {
+      headers: this.headers
+    })
+  }
 
-  constructor() { }
-
-  getPersonnages(filmId:number):Personnage[]{
-    return [
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-      new Personnage().deserialize({
-        nomPers: "Doe",
-        prenPers: "John"
-      }),
-    ]
+  addPersonnage(personnage:Personnage){
+    return this.httpClient.post(this.url, personnage, {headers: this.headers})
   }
 }

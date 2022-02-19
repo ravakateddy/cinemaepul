@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (recherche)="updateFilms($event)"></app-navbar>
 <div class="container-img" style="min-height: 750px; overflow: hidden; ">
     <youtube-player style="width: 100%;"
      #player
@@ -18,15 +18,15 @@
 <div><img src="../../assets/img/trailer.png" width="350px" alt="" srcset="" style="position: absolute; top: 300px; left: 100px;"></div>
 
 <div class="container">
-    <mat-chip-list aria-label="Fish selection" style="margin-bottom: 32px;">
-        <mat-chip>One fish</mat-chip>
-        <mat-chip>Two fish</mat-chip>
-        <mat-chip color="primary" selected>Primary fish</mat-chip>
-        <mat-chip color="accent" selected>Accent fish</mat-chip>
-      </mat-chip-list>
+    <mat-chip-list multiple id="chipList" [selectable]="true">
+        <mat-chip *ngFor="let chip of categories" [selected]="chip.state"
+            (click)="chip.state=!chip.state;applyFilter();">
+            {{chip.libelleCat}}
+        </mat-chip>
+    </mat-chip-list>
         <div class="row">
             <div class="col">
-                <app-list-films [films]="[]"></app-list-films>
+                <app-list-films [films]="filmsView"></app-list-films>
             </div>
         </div>
 </div>
