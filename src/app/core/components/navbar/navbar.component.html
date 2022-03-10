@@ -9,16 +9,9 @@
     </div>
     
     <mat-form-field appearance="outline" class="col-3 mt-4">
-        <mat-label>Rechercher par réalisateur</mat-label>
-        <input type="text" aria-label="Candidat" matInput [formControl]="formAutoComplete" (keyup)="resetAutocomplete()"
-            [matAutocomplete]="auto">
+        <mat-label>Rechercher</mat-label>
+        <input type="text" aria-label="" matInput (keyup)="keyup()" [(ngModel)]="q">
         <mat-icon matPrefix class="mr-3">search</mat-icon>
-        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
-            (optionSelected)="getSelectedOptions($event.option.value)">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                <mat-icon>person</mat-icon>{{option.name}}
-            </mat-option>
-        </mat-autocomplete>
     </mat-form-field>
     <div class="d-flex align-items-center">
         <button mat-button>

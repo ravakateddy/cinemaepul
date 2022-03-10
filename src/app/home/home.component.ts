@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   public films:Film[] = [];
   public filmsView :Film[] = [];
   public selectedCategories: any[] = []
+  public q:string = "";
   @Input() videoId: string = "";
   playerConfig = {
     controls: 0,
@@ -80,9 +81,18 @@ export class HomeComponent implements OnInit {
 
   }
 
-  updateFilms(event:any[]){
-    this.films = event
-    this.applyFilter()
+  searchFilms(){
+    
+  }
+
+  updateFilms(event:string){
+    this.filmService.searchFilms(event).subscribe(
+      f=>{
+        this.films = f;
+        this.applyFilter()
+      }
+    )
+    
   }
 
 

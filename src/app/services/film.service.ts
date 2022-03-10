@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Film } from '../models/film.model';
 
 @Injectable({
@@ -28,6 +29,12 @@ export class FilmService {
 
   getFilmsParRealisateur(id:number): Observable<Film[]>{
     return this.httpClient.get<Film[]>(this.url + 'realisateur/'+id, {
+      headers : this.headers
+    });
+  }
+
+  searchFilms(q:string): Observable<Film[]>{
+    return this.httpClient.get<Film[]>(this.url + '?search='+q, {
       headers : this.headers
     });
   }
