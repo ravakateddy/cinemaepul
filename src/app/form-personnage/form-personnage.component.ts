@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Acteur } from '../models/acteur.model';
 import { Categorie } from '../models/categorie.model';
 import { Film } from '../models/film.model';
@@ -15,10 +16,11 @@ import { PersonnageService } from '../services/personnage.service';
 })
 export class FormPersonnageComponent implements OnInit {
   private personnage: Personnage = new Personnage();
+  @Input()
   personnageForm: FormGroup = new FormGroup({});
   films: Film[] = []
   acteurs : Acteur[] = []
-  constructor(private personnageService:PersonnageService, private acteurService:ActeurService, private filmService:FilmService) { }
+  constructor(private personnageService:PersonnageService, private acteurService:ActeurService, private filmService:FilmService, private r: Router) { }
 
   ngOnInit(): void {
     this.personnageForm = new FormGroup({
@@ -40,7 +42,11 @@ export class FormPersonnageComponent implements OnInit {
 
   save(){
     this.personnage = new Personnage().deserialize(this.personnageForm.value)
-    this.personnageService.addPersonnage(this.personnage).subscribe(personnage=>{})
+    this.personnageService.addPersonnage(this.personnage).subscribe(personnage=>{
+      this.r.navigateByUrl("/").then(()=>{
+        alert("film ajouté")
+      })
+    })
   }
 
 }

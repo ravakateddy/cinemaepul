@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Categorie } from '../models/categorie.model';
 import { Film } from '../models/film.model';
 import { Realisateur } from '../models/realisateur.model';
@@ -20,7 +20,7 @@ export class FormFilmComponent implements OnInit {
   filmForm: FormGroup = new FormGroup({});
   public realisateurs: Realisateur[] = []
   public categories:Categorie[] = []
-  constructor(private filmService:FilmService, private categorieService:CategorieService, private realisateurService:RealisateurService, private route: ActivatedRoute) { }
+  constructor(private filmService:FilmService, private categorieService:CategorieService, private realisateurService:RealisateurService, private route: ActivatedRoute, private r:Router) { }
 
   ngOnInit(): void {
     this.categorieService.getCategories().subscribe(
@@ -49,10 +49,18 @@ export class FormFilmComponent implements OnInit {
   save(){
     this.film = new Film().deserialize(this.filmForm.value)
     if(this.film.noFilm){
-      this.filmService.updateFilm(this.film).subscribe(film=>{})
-      console.log("Updating")
+      this.filmService.updateFilm(this.film).subscribe(film=>{
+        this.r.navigateByUrl("/").then(()=>{
+          alert("film ajouté")
+        })
+      })
+      
     }else{
-      this.filmService.addFilm(this.film).subscribe(film=>{})
+      this.filmService.addFilm(this.film).subscribe(film=>{
+        this.r.navigateByUrl("/").then(()=>{
+          alert("film ajouté")
+        })
+      })
     }
     
   }
@@ -67,7 +75,7 @@ export class FormFilmComponent implements OnInit {
       montantRecette: new FormControl(this.film.montantRecette, [Validators.min(0), Validators.required]),
       urlImage: new FormControl(this.film.urlImage),
       videoTrailer: new FormControl(this.film.videoTrailer),
-      titleImage: new FormControl(this.film.titleImage),
+      titleimage: new FormControl(this.film.titleImage),
       noRea: new FormControl(this.film.noRea, [Validators.required]),
       codeCat: new FormControl(this.film.codeCat, [Validators.required])
     })

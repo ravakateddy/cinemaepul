@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
           }
     this.filmService.getFilms().subscribe(films=>{
       this.films = films
+      this.applyFilter()
     })
     this.categorieService.getCategories().subscribe(cat=>{
       cat.map((c: any)=>{
