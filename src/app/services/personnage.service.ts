@@ -9,7 +9,7 @@ import { Personnage } from '../models/personnage.model';
 export class PersonnageService {
   private url = 'http://127.0.0.1:8080/personnage/'
   headers: any;
-  constructor(private httpClient:HttpClient) { 
+  constructor(private httpClient:HttpClient) {
     this.headers = new HttpHeaders({
       'content-type': 'application/json',
     'Cache-Control': 'no-cache',
@@ -25,6 +25,6 @@ export class PersonnageService {
   }
 
   addPersonnage(personnage:Personnage){
-    return this.httpClient.post(this.url, personnage, {headers: this.headers})
+    return this.httpClient.post(this.url+"create/", personnage, {headers: this.headers})
   }
 }
